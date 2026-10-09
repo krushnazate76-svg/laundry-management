@@ -5,8 +5,8 @@ agent any
 stages {
     stage('Clone Repository') {
         steps {
-            echo 'Cloning Laundry Management System...'
             checkout scm
+            echo 'Repository cloned successfully'
         }
     }
 
@@ -48,7 +48,7 @@ post {
         echo 'Laundry Management System deployed successfully!'
     }
     failure {
-        echo 'Pipeline failed. Check the Jenkins console output.'
+        echo 'Pipeline failed. Check Console Output.'
     }
 }
 ```
