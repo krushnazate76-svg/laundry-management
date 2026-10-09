@@ -1,6 +1,7 @@
 pipeline {
 agent any
 
+
 stages {
     stage('Clone Repository') {
         steps {
@@ -9,15 +10,15 @@ stages {
         }
     }
 
-stage('Install Dependencies') {
-    steps {
-        bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
+    stage('Install Dependencies') {
+        steps {
+            bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
+        }
     }
-}
 
     stage('Basic Test') {
         steps {
-            bat 'python -m py_compile app.py'
+            bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m py_compile app.py'
         }
     }
 
@@ -50,5 +51,6 @@ post {
         echo 'Pipeline failed. Check Console Output.'
     }
 }
+
 
 }
