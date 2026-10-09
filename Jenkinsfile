@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 stages {
     stage('Clone Repository') {
         steps {
@@ -51,6 +50,5 @@ post {
         echo 'Pipeline failed. Check Console Output.'
     }
 }
-```
 
 }
