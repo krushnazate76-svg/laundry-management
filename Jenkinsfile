@@ -9,11 +9,11 @@ stages {
         }
     }
 
-    stage('Install Dependencies') {
-        steps {
-            bat 'python -m pip install -r requirements.txt'
-        }
+stage('Install Dependencies') {
+    steps {
+        bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
     }
+}
 
     stage('Basic Test') {
         steps {
