@@ -1,28 +1,27 @@
+```groovy
 pipeline {
-agent any
+    agent any
 
-
-stages {
-    stage('Clone Repository') {
-        steps {
-            checkout scm
-            echo 'Repository cloned successfully'
+    stages {
+        stage('Clone Repository') {
+            steps {
+                checkout scm
+                echo 'Repository cloned successfully'
+            }
         }
-    }
 
-    stage('Install Dependencies') {
-        steps {
-            bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
+        stage('Install Dependencies') {
+            steps {
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
+            }
         }
-    }
 
-    stage('Basic Test') {
-        steps {
-            bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m py_compile app.py'
+        stage('Basic Test') {
+            steps {
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m py_compile app.py'
+            }
         }
-    }
 
-  groovy
         stage('Build Docker Image') {
             steps {
                 bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t laundry-app .'
@@ -42,15 +41,15 @@ stages {
                 bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" ps'
             }
         }
-
-post {
-    success {
-        echo 'Laundry Management System deployed successfully!'
     }
-    failure {
-        echo 'Pipeline failed. Check Console Output.'
+
+    post {
+        success {
+            echo 'Laundry Management System deployed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check Console Output.'
+        }
     }
 }
-
-
-}
+```
