@@ -22,26 +22,28 @@ stages {
         }
     }
 
-    stage('Build Docker Image') {
-        steps {
-            bat 'docker build -t laundry-app .'
+```groovy
+        stage('Build Docker Image') {
+            steps {
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t laundry-app .'
+            }
         }
-    }
 
-    stage('Deploy Container') {
-        steps {
-            bat 'docker stop laundry-container || exit /b 0'
-            bat 'docker rm laundry-container || exit /b 0'
-            bat 'docker run -d -p 5000:5000 --name laundry-container laundry-app'
+        stage('Deploy Container') {
+            steps {
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop laundry-container || exit /b 0'
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm laundry-container || exit /b 0'
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d -p 5000:5000 --name laundry-container laundry-app'
+            }
         }
-    }
 
-    stage('Verify Deployment') {
-        steps {
-            bat 'docker ps'
+        stage('Verify Deployment') {
+            steps {
+                bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" ps'
+            }
         }
-    }
-}
+```
+
 
 post {
     success {
