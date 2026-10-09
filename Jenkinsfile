@@ -22,7 +22,7 @@ stages {
         }
     }
 
-```groovy
+  groovy
         stage('Build Docker Image') {
             steps {
                 bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t laundry-app .'
@@ -42,8 +42,6 @@ stages {
                 bat '"C:\\Users\\Krushna\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" ps'
             }
         }
-```
-
 
 post {
     success {
